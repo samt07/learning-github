@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WORKDIR= pwd
+WORKDIR=`pwd`
 
 if [ ! -d $WORKDIR/ve ]; then
     python3 -m venv ve
