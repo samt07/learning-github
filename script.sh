@@ -1,18 +1,19 @@
 #!/bin/bash
 
-WORKDIR= pwd
+##This script is to be run from the workdir folder
+WORKDIR=`pwd`
+APPDIR=minimal-django
+# This will be input argument later $1.
+
+if [ ! -d $WORKDIR/$APPDIR ]; then
+git clone https://github.com/rnevius/minimal-django.git
+fi
 
 if [ ! -d $WORKDIR/ve ]; then
     python3 -m venv ve
     echo "Virtualenv created."
     source ve/bin/activate
-    pip install django
-    pip install gunicorn
+    pip install -r requirements.txt
 fi
-exit
 
-#if [ ! -f "$WORKDIR/ve/updated" -o $WORKDIR/requirements.pip -nt $WORKDIR/ve/updated ]; then
- #   pip install django $WORKDIR/ve
-  #  touch $WORKDIR/ve/updated
-   # echo "Requirements installed."
-#fi
+exit
