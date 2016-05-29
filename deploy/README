@@ -1,0 +1,69 @@
+
+This is the directory stucture that we want .
+
+backups/ - stores various backups
+environ/ - definition of environment variables for various run types
+rundirs/ - Directories where we check out source code and run our applications
+    common/ - Checkout of source code to run services common to all
+        revisions, such as nginx, database, etc. This checkout will happen
+        only once.
+    revision-specific/ - Checkout of source code to run services for
+        different revisions. Will run the gunicorn service for the
+        particular source code revision.
+twitter-clone.git - Our source git repository is cloned here
+
+twitter_clone/
+├── backups/
+├── environ/
+│   ├── development/
+│   ├── production/
+│   └── staging/
+├── README
+├── rundirs/
+│   ├── common/
+│   │   ├── 64f12866fcee1188d6b555f7b0ab92af683742a7/
+│   │   │   ├── env/
+│   │   │   ├── requirements.txt
+│   │   │   └── services/
+│   │   │       ├── common/
+│   │   │       │   ├── broker/
+│   │   │       │   ├── cache/
+│   │   │       │   ├── database/
+│   │   │       │   ├── nginx/
+│   │   │       │   └── supervisord.conf
+│   │   │       └── revision-specific/
+│   │   │           ├── celery/
+│   │   │           ├── gunicorn/
+│   │   │           └── supervisord.conf
+│   │   └── current -> 64f12866fcee1188d6b555f7b0ab92af683742a7/
+│   └── revision-specific/
+│       ├── 42b9a825ac08a68f22d497cf4276942a1e733337/
+│       │   ├── env/
+│       │   ├── requirements.txt
+│       │   └── services/
+│       │       ├── common/
+│       │       │   ├── broker/
+│       │       │   ├── cache/
+│       │       │   ├── database/
+│       │       │   ├── nginx/
+│       │       │   └── supervisord.conf
+│       │       └── revision-specific/
+│       │           ├── celery/
+│       │           ├── gunicorn/
+│       │           └── supervisord.conf
+│       ├── 64f12866fcee1188d6b555f7b0ab92af683742a7/
+│       │   ├── env/
+│       │   ├── requirements.txt
+│       │   └── services/
+│       │       ├── common/
+│       │       │   ├── broker/
+│       │       │   ├── cache/
+│       │       │   ├── database/
+│       │       │   ├── nginx/
+│       │       │   └── supervisord.conf
+│       │       └── revision-specific/
+│       │           ├── celery/
+│       │           ├── gunicorn/
+│       │           └── supervisord.conf
+│       └── current -> 42b9a825ac08a68f22d497cf4276942a1e733337/
+└── twitter-clone.git/
