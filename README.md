@@ -1,3 +1,4 @@
+#I have editied this file
 # Minimal Django
 A "Hello World" for Django...Because Django can be nearly as simple as Flask.
 
